@@ -1,0 +1,68 @@
+<nav [class]="isScrolled
+    ? 'fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-lg'
+    : 'fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-transparent'">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-18 py-4">
+
+      <!-- Logo -->
+      <a href="#home" (click)="scrollTo('#home', $event)" class="flex items-center gap-2 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-red-600 to-rose-700 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+          <span class="text-white font-black text-lg">I</span>
+        </div>
+        <span [class]="isScrolled ? 'text-2xl font-black text-gray-900' : 'text-2xl font-black text-white'">
+          Infort
+        </span>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <div class="hidden lg:flex items-center gap-1">
+        <a *ngFor="let link of navLinks"
+           [href]="link.href"
+           (click)="scrollTo(link.href, $event)"
+           [class]="isScrolled
+             ? 'px-4 py-2 rounded-lg text-sm font-medium text-gray-700 hover:text-red-600 hover:bg-red-50 transition-all duration-200'
+             : 'px-4 py-2 rounded-lg text-sm font-medium text-white/90 hover:text-white hover:bg-white/10 transition-all duration-200'">
+          {{ link.label }}
+        </a>
+      </div>
+
+      <!-- Desktop CTA -->
+      <div class="hidden lg:flex items-center gap-3">
+        <a href="#contact" (click)="scrollTo('#contact', $event)"
+           class="btn-gradient text-sm py-2.5 px-6">
+          Get Started
+          <span class="material-icons text-base">arrow_forward</span>
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger -->
+      <button (click)="toggleMobileMenu()"
+              [class]="isScrolled ? 'lg:hidden p-2 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors' : 'lg:hidden p-2 rounded-lg text-white hover:bg-white/10 transition-colors'"
+              aria-label="Toggle mobile menu">
+        <span class="material-icons text-2xl">{{ isMobileMenuOpen ? 'close' : 'menu' }}</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div *ngIf="isMobileMenuOpen"
+       class="lg:hidden bg-white/98 backdrop-blur-md border-t border-gray-100 shadow-xl">
+    <div class="px-4 py-4 flex flex-col gap-1">
+      <a *ngFor="let link of navLinks"
+         [href]="link.href"
+         (click)="scrollTo(link.href, $event)"
+         class="px-4 py-3 rounded-xl text-sm font-medium text-gray-700 hover:text-red-600 hover:bg-red-50 transition-all duration-200 flex items-center gap-2">
+        {{ link.label }}
+      </a>
+      <div class="pt-3 border-t border-gray-100 mt-2">
+        <a href="#contact" (click)="scrollTo('#contact', $event)"
+           class="btn-gradient w-full justify-center text-sm py-3">
+          Get Started
+          <span class="material-icons text-base">arrow_forward</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
