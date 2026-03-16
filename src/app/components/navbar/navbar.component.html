@@ -6,12 +6,8 @@
 
       <!-- Logo -->
       <a href="#home" (click)="scrollTo('#home', $event)" class="flex items-center gap-2 group">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-red-600 to-rose-700 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-          <span class="text-white font-black text-lg">I</span>
-        </div>
-        <span [class]="isScrolled ? 'text-2xl font-black text-gray-900' : 'text-2xl font-black text-white'">
-          Infort
-        </span>
+        <img [src]="isScrolled ? 'assets/images/infort_new_logo.png' : 'assets/images/infort_new_logo_white.png'" alt="Infort Logo"
+          class="h-8 transition-all duration-300" />
       </a>
 
       <!-- Desktop Nav Links -->
@@ -29,7 +25,7 @@
       <!-- Desktop CTA -->
       <div class="hidden lg:flex items-center gap-3">
         <a href="#contact" (click)="scrollTo('#contact', $event)"
-           class="btn-gradient text-sm py-2.5 px-6">
+          class="btn-gradient text-base font-semibold py-2.5 px-6 flex items-center gap-2">
           Get Started
           <span class="material-icons text-base">arrow_forward</span>
         </a>

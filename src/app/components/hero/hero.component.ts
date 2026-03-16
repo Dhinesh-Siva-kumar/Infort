@@ -10,9 +10,9 @@ import { CommonModule } from '@angular/common';
 })
 export class HeroComponent {
   stats = [
-    { value: '200+', label: 'Projects Delivered' },
-    { value: '50+', label: 'Happy Clients' },
-    { value: '5+', label: 'Years Experience' },
+    { value: '20+', label: 'Projects Delivered' },
+    { value: '10+', label: 'Happy Clients' },
+    { value: '3+', label: 'Years Experience' },
     { value: '24/7', label: 'Support' },
   ];
 

@@ -16,13 +16,13 @@
       <!-- Left: Visual -->
       <div class="relative">
         <div class="relative rounded-3xl overflow-hidden"
-             style="background: linear-gradient(135deg, #991b1b, #7f1d1d, #9f1239); padding: 2px;">
+             style="background: linear-gradient(135deg, #991b1b, #7f1d1d, #9f1239); padding: 1.5px;">
           <div class="rounded-3xl bg-white p-8">
             <div class="grid grid-cols-2 gap-4">
               <div *ngFor="let stat of [
-                { value: '200+', label: 'Projects', icon: 'folder_open', color: 'from-red-500 to-red-700' },
-                { value: '50+', label: 'Clients', icon: 'groups', color: 'from-rose-500 to-rose-700' },
-                { value: '5+', label: 'Years', icon: 'calendar_today', color: 'from-red-400 to-rose-600' },
+                { value: '20+', label: 'Projects', icon: 'folder_open', color: 'from-red-500 to-red-700' },
+                { value: '10+', label: 'Clients', icon: 'groups', color: 'from-rose-500 to-rose-700' },
+                { value: '3+', label: 'Years', icon: 'calendar_today', color: 'from-red-400 to-rose-600' },
                 { value: '100%', label: 'Committed', icon: 'verified', color: 'from-red-600 to-red-800' }
               ]"
               class="rounded-2xl p-6 text-center hover:scale-105 transition-transform duration-300"
@@ -72,7 +72,7 @@
 
         <!-- Badges -->
         <div class="flex flex-wrap gap-3">
-          <span *ngFor="let badge of ['Full-Stack Development', 'Digital Marketing', 'ERP Solutions', 'Brand Identity', '24/7 Support']"
+          <span *ngFor="let badge of ['Software Development', 'Website Development', 'Digital Marketing', 'ERP Solutions', 'Brand Identity', '24/7 Support']"
                 class="px-4 py-2 bg-gray-50 border border-gray-200 text-gray-700 text-sm font-medium rounded-full hover:border-red-400 hover:text-red-600 transition-colors duration-200">
             {{ badge }}
           </span>

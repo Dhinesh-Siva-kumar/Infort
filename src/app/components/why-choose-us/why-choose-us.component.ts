@@ -10,57 +10,52 @@ import { CommonModule } from '@angular/common';
 })
 export class WhyChooseUsComponent {
   reasons = [
-    {
-      icon: 'rocket_launch',
-      title: 'Startup-Friendly Solutions',
-      description: 'We understand startups — lean budgets, fast pivots, and the need for scalable solutions from day one.',
-      gradient: 'from-red-500 to-orange-500',
-      delay: '0ms',
-    },
-    {
-      icon: 'payments',
-      title: 'Affordable Pricing',
-      description: 'Flexible, transparent pricing plans with no hidden fees. Get enterprise-quality work at startup-friendly rates.',
-      gradient: 'from-rose-500 to-red-500',
-      delay: '100ms',
-    },
-    {
-      icon: 'hub',
-      title: 'All Services Under One Roof',
-      description: 'No need to juggle multiple agencies. Get development, design, marketing, and ERP from one trusted partner.',
-      gradient: 'from-teal-500 to-emerald-500',
-      delay: '200ms',
-    },
-    {
-      icon: 'groups',
-      title: 'Experienced Team',
-      description: 'Our specialists bring years of experience across domains — from Fortune 500 projects to successful product launches.',
-      gradient: 'from-orange-500 to-amber-500',
-      delay: '300ms',
-    },
-    {
-      icon: 'speed',
-      title: 'Fast Project Delivery',
-      description: 'Agile sprints and a streamlined workflow mean you see results faster — without compromising on quality.',
-      gradient: 'from-pink-500 to-rose-500',
-      delay: '400ms',
-    },
-    {
-      icon: 'support_agent',
-      title: 'Dedicated Support',
-      description: 'A dedicated account manager and support team that knows your project inside-out, available whenever you need.',
-      gradient: 'from-rose-600 to-red-600',
-      delay: '500ms',
-    },
-  ];
+  {
+    icon: 'track_changes',
+    title: 'Results-Driven Strategy',
+    description: 'Every solution we build is aligned with your business goals — focusing on measurable growth, higher conversions, and long-term success.',
+    gradient: 'from-red-500 to-rose-500'
+  },
+  {
+    icon: 'bolt',
+    title: 'Fast & Reliable Delivery',
+    description: 'Our agile workflow ensures projects move quickly without compromising quality, so you can launch faster and stay ahead of competitors.',
+    gradient: 'from-orange-500 to-red-500'
+  },
+  {
+    icon: 'groups',
+    title: 'Client-Centric Approach',
+    description: 'We treat every project as a partnership — understanding your needs, communicating transparently, and delivering solutions that truly fit your business.',
+    gradient: 'from-rose-500 to-pink-500'
+  },
+  {
+    icon: 'hub',
+    title: 'Integrated Digital Solutions',
+    description: 'From web development and ERP systems to marketing and branding — we provide complete digital solutions under one roof.',
+    gradient: 'from-red-600 to-orange-600'
+  },
+  {
+    icon: 'insights',
+    title: 'Data & Performance Focused',
+    description: 'We rely on analytics and insights to optimize strategies, helping you make smarter decisions and achieve sustainable growth.',
+    gradient: 'from-pink-500 to-rose-500'
+  },
+  {
+    icon: 'verified',
+    title: 'Quality You Can Trust',
+    description: 'With modern technologies, best practices, and strict quality standards, we deliver reliable solutions built for long-term performance.',
+    gradient: 'from-amber-500 to-orange-500'
+  }
+];
 
   comparePoints = [
-    { label: 'Custom Solutions', us: true, others: false },
-    { label: 'Startup-Friendly Pricing', us: true, others: false },
-    { label: 'All-in-One Services', us: true, others: false },
-    { label: '24/7 Dedicated Support', us: true, others: false },
-    { label: 'Scalable Architecture', us: true, others: true },
-    { label: 'Post-Launch Maintenance', us: true, others: false },
-  ];
+  { label: 'Dedicated Project Support', others: false },
+  { label: 'Transparent Pricing', others: false },
+  { label: 'End-to-End Digital Solutions', others: false },
+  { label: 'Fast Project Delivery', others: false },
+  { label: 'Modern Technology Stack', others: false },
+  { label: 'Data-Driven Marketing', others: false },
+  { label: 'Long-Term Partnership Focus', others: false }
+];
 }
 

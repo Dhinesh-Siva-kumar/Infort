@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ContactService } from '../../services/contactService';
 
 @Component({
   selector: 'app-contact',
@@ -10,14 +11,14 @@ import { FormsModule, ReactiveFormsModule, FormBuilder, FormGroup, Validators } 
   styleUrl: './contact.component.css'
 })
 export class ContactComponent {
-  contactForm: FormGroup;
+  contactForm!: FormGroup;
   isSubmitting = false;
   isSubmitted = false;
 
   contactInfo = [
-    { icon: 'email', label: 'Email Us', value: 'hello@infort.in', href: 'mailto:hello@infort.in', color: 'from-blue-500 to-blue-700' },
-    { icon: 'phone', label: 'Call Us', value: '+91 98765 43210', href: 'tel:+919876543210', color: 'from-purple-500 to-purple-700' },
-    { icon: 'location_on', label: 'Visit Us', value: 'Bengaluru, Karnataka, India', href: '#', color: 'from-teal-500 to-teal-700' },
+    { icon: 'email', label: 'Email Us', value: 'infortsolutions@infort.in', href: 'mailto:infortsolutions@infort.in', color: 'from-blue-500 to-blue-700' },
+    { icon: 'phone', label: 'Call Us', value: '+91 6383944767', href: 'tel:+916383944767', color: 'from-purple-500 to-purple-700' },
+    { icon: 'location_on', label: 'Visit Us', value: 'Trichy, India', href: '#', color: 'from-teal-500 to-teal-700' },
     { icon: 'access_time', label: 'Working Hours', value: 'Mon–Sat: 9AM – 7PM', href: '#', color: 'from-orange-500 to-orange-700' },
   ];
 
@@ -29,32 +30,69 @@ export class ContactComponent {
     { icon: 'fab fa-whatsapp', href: '#', label: 'WhatsApp', gradient: 'from-green-500 to-emerald-600' },
   ];
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder,
+    private contactService: ContactService
+  ) {
+  }
+
+  ngOnInit(): void {
+    this.initForm();
+  }
+
+  initForm() {
     this.contactForm = this.fb.group({
-      name: ['', [Validators.required, Validators.minLength(2)]],
-      email: ['', [Validators.required, Validators.email]],
-      phone: [''],
-      service: [''],
-      message: ['', [Validators.required, Validators.minLength(10)]],
+      name: ['', [
+        Validators.required,
+        Validators.minLength(3)
+      ]],
+
+      email: ['', [
+        Validators.required,
+        Validators.email
+      ]],
+
+      phone: ['', [
+  Validators.required,
+  Validators.pattern('^[0-9]{10}$')
+]],
+
+      service: ['', Validators.required],
+
+      message: ['', [
+        Validators.required,
+        Validators.minLength(10),
+        Validators.maxLength(500)
+      ]]
     });
   }
+
 
   get f() { return this.contactForm.controls; }
 
   onSubmit() {
+
     if (this.contactForm.invalid) {
       this.contactForm.markAllAsTouched();
       return;
     }
+
     this.isSubmitting = true;
-    setTimeout(() => {
-      this.isSubmitting = false;
-      this.isSubmitted = true;
-      this.contactForm.reset();
-    }, 1500);
+
+    this.contactService.sendContact(this.contactForm.value)
+      .subscribe({
+        next: (res) => {
+          this.isSubmitting = false;
+          this.isSubmitted = true;
+        },
+        error: (err) => {
+          this.isSubmitting = false;
+          console.error(err);
+        }
+      });
   }
 
   resetForm() {
+    this.contactForm.reset();
     this.isSubmitted = false;
   }
 }
