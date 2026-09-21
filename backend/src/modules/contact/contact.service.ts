@@ -34,6 +34,10 @@ export class ContactService {
     return this.repository.updateStatus(id, status);
   }
 
+  async summary() {
+    return this.repository.countsSummary();
+  }
+
   private async notifyFounders(submission: ContactSubmission): Promise<void> {
     const founders = await db('users').where({ role: 'FOUNDER', is_active: true }).select('id');
 

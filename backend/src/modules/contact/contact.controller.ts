@@ -37,6 +37,11 @@ export async function listContactRequests(req: Request, res: Response): Promise<
   });
 }
 
+export async function getContactRequestsSummary(_req: Request, res: Response): Promise<void> {
+  const summary = await contactService.summary();
+  res.json({ success: true, data: summary, message: 'OK' });
+}
+
 export async function getContactRequest(req: Request, res: Response): Promise<void> {
   const submission = await contactService.getById(Number(req.params['id']));
   res.json({ success: true, data: submission, message: 'OK' });

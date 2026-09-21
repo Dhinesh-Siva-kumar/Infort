@@ -68,4 +68,24 @@ export class ContactRepository {
 
     return row;
   }
+
+  async countsSummary(): Promise<{ total: number; newCount: number; todayCount: number; pendingCount: number }> {
+    const [{ count: total }] = await db('contact_submissions').count<{ count: string }[]>('id as count');
+    const [{ count: newCount }] = await db('contact_submissions')
+      .where({ status: 'NEW' })
+      .count<{ count: string }[]>('id as count');
+    const [{ count: todayCount }] = await db('contact_submissions')
+      .where('created_at', '>=', db.raw("date_trunc('day', now())"))
+      .count<{ count: string }[]>('id as count');
+    const [{ count: pendingCount }] = await db('contact_submissions')
+      .whereIn('status', ['NEW', 'READ', 'IN_PROGRESS'])
+      .count<{ count: string }[]>('id as count');
+
+    return {
+      total: Number(total),
+      newCount: Number(newCount),
+      todayCount: Number(todayCount),
+      pendingCount: Number(pendingCount),
+    };
+  }
 }

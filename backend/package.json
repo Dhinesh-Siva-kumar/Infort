@@ -10,7 +10,8 @@
     "migrate": "knex migrate:latest",
     "migrate:make": "knex migrate:make",
     "migrate:rollback": "knex migrate:rollback",
-    "create-founder": "ts-node --transpile-only src/scripts/createFounder.ts"
+    "create-founder": "ts-node --transpile-only src/scripts/createFounder.ts",
+    "reset-founder-password": "ts-node --transpile-only src/scripts/resetFounderPassword.ts"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
