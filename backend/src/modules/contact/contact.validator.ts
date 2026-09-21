@@ -1,4 +1,6 @@
 import { z } from 'zod';
+import { CONTACT_STATUSES } from './contact.types';
+import { paginationSchema } from '../../shared/pagination';
 
 // Mirrors the validation rules in the Angular ContactComponent form
 // (frontend/src/app/components/contact/contact.component.ts) so both sides agree.
@@ -11,3 +13,13 @@ export const contactSchema = z.object({
 });
 
 export type ContactInput = z.infer<typeof contactSchema>;
+
+export const contactListQuerySchema = paginationSchema.extend({
+  search: z.string().trim().min(1).optional(),
+  status: z.enum(CONTACT_STATUSES).optional(),
+  sort: z.enum(['newest', 'oldest']).default('newest'),
+});
+
+export const updateStatusSchema = z.object({
+  status: z.enum(CONTACT_STATUSES),
+});

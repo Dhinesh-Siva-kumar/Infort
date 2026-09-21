@@ -27,3 +27,15 @@ export class DatabaseError extends AppError {
     super(message, 500, 'DATABASE_ERROR');
   }
 }
+
+export class AuthenticationError extends AppError {
+  constructor(message = 'Invalid credentials') {
+    super(message, 401, 'AUTHENTICATION_ERROR');
+  }
+}
+
+export class AuthorizationError extends AppError {
+  constructor(message = 'You are not allowed to perform this action') {
+    super(message, 403, 'AUTHORIZATION_ERROR');
+  }
+}
