@@ -1,8 +1,0 @@
-.service-card {
-  position: relative;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.service-card:hover {
-  transform: translateY(-8px);
-}
