@@ -1,22 +1,20 @@
 /// Build-time environment configuration.
 ///
-/// Pass at build/run time, e.g.:
-///   flutter run --dart-define=API_BASE_URL=http://10.0.2.2:3000/api --dart-define=ENV=development
-///   flutter build apk --release --dart-define=API_BASE_URL=https://api.infort.in/api --dart-define=ENV=production
+/// Defaults to the real production domain, so a plain `flutter build apk
+/// --release` always targets infortsolutions.in without needing to remember
+/// a --dart-define. Only override API_BASE_URL for one-off local/LAN testing:
+///   flutter run --dart-define=API_BASE_URL=http://192.168.x.x:3000/api --dart-define=ENV=development
 class AppConfig {
   AppConfig._();
 
   static const String environment = String.fromEnvironment(
     'ENV',
-    defaultValue: 'development',
+    defaultValue: 'production',
   );
 
-  /// Defaults to the Android emulator's loopback alias for the host machine.
-  /// Override with --dart-define=API_BASE_URL=... for a real device, iOS
-  /// simulator (use http://localhost:3000/api), or a deployed backend.
   static const String apiBaseUrl = String.fromEnvironment(
     'API_BASE_URL',
-    defaultValue: 'http://10.0.2.2:3000/api',
+    defaultValue: 'https://infortsolutions.in/api',
   );
 
   static bool get isProduction => environment == 'production';

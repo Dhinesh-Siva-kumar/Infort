@@ -30,7 +30,7 @@ class InfortFounderApp extends ConsumerWidget {
     final themeMode = ref.watch(settingsControllerProvider).themeMode;
 
     return MaterialApp.router(
-      title: 'Infort Founder',
+      title: 'Infort',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.light,
       darkTheme: AppTheme.dark,

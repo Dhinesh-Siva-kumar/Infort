@@ -54,11 +54,13 @@ class AppTheme {
       ),
       cardTheme: CardThemeData(
         color: surface,
-        elevation: 0,
+        elevation: isDark ? 0 : 3,
+        shadowColor: isDark ? Colors.transparent : AppColors.lightTextPrimary.withValues(alpha: 0.08),
+        surfaceTintColor: Colors.transparent,
         margin: EdgeInsets.zero,
         shape: RoundedRectangleBorder(
           borderRadius: AppRadius.mdRadius,
-          side: BorderSide(color: border),
+          side: isDark ? BorderSide(color: border) : BorderSide.none,
         ),
       ),
       inputDecorationTheme: InputDecorationTheme(

@@ -31,20 +31,21 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             Image.asset(
-              'assets/images/infort_logo.png',
-              height: 72,
+              'assets/images/app_icon_foreground.png',
+              height: 96,
               errorBuilder: (_, _, _) => Icon(
                 Icons.business_center_rounded,
-                size: 72,
+                size: 96,
                 color: Theme.of(context).colorScheme.primary,
               ),
             ),
-            const SizedBox(height: 24),
+            const SizedBox(height: 32),
             const CircularProgressIndicator(),
           ],
         ),

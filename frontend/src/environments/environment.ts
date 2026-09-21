@@ -1,4 +1,5 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://api.infortsolutions.in/api',
+  // Same-origin: Nginx proxies /api/ on this domain through to the backend.
+  apiUrl: '/api',
 };

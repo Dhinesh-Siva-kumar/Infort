@@ -134,7 +134,7 @@ class SettingsScreen extends ConsumerWidget {
               final confirmed = await showConfirmDialog(
                 context,
                 title: 'Log out',
-                message: 'Are you sure you want to log out of Infort Founder?',
+                message: 'Are you sure you want to log out of Infort?',
                 confirmLabel: 'Log out',
                 isDestructive: true,
               );

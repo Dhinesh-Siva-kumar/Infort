@@ -26,7 +26,7 @@ class _LockScreenState extends ConsumerState<LockScreen> {
     setState(() => _authenticating = true);
     final ok = await ref
         .read(biometricAuthServiceProvider)
-        .authenticate('Unlock Infort Founder');
+        .authenticate('Unlock Infort');
     if (ok) {
       ref.read(appLockProvider.notifier).unlock();
     }
@@ -49,7 +49,7 @@ class _LockScreenState extends ConsumerState<LockScreen> {
               ),
               const SizedBox(height: AppSpacing.lg),
               Text(
-                'Infort Founder is locked',
+                'Infort is locked',
                 style: Theme.of(context).textTheme.titleLarge,
               ),
               const SizedBox(height: AppSpacing.sm),
