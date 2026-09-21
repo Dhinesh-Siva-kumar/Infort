@@ -1,0 +1,232 @@
+<section id="contact" class="section-padding bg-gradient-to-br from-slate-50 to-red-50/50">
+  <div class="max-w-7xl mx-auto">
+
+    <!-- Header -->
+    <div class="text-center mb-16">
+      <span
+        class="inline-block px-4 py-1.5 bg-red-50 text-red-600 text-sm font-semibold rounded-full mb-4 uppercase tracking-wide">Get
+        In Touch</span>
+      <h2 class="section-title gradient-text">Contact Us</h2>
+      <p class="section-subtitle">
+        Have a project in mind? We'd love to hear about it. Send us a message and we'll get back to you within 24 hours.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-5 gap-10">
+
+      <!-- Left: Contact Info -->
+      <div class="lg:col-span-2 flex flex-col gap-6">
+
+        <!-- Info cards -->
+        <div *ngFor="let info of contactInfo"
+          class="group flex items-center gap-4 p-5 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+          <div
+            [class]="'w-12 h-12 rounded-xl bg-gradient-to-br ' + info.color + ' flex items-center justify-center shadow-md flex-shrink-0 group-hover:scale-110 transition-transform duration-300'">
+            <span class="material-icons text-white text-xl">{{ info.icon }}</span>
+          </div>
+          <div>
+            <p class="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-0.5">{{ info.label }}</p>
+            <a [href]="info.href"
+              class="text-gray-900 font-semibold text-sm hover:text-red-600 transition-colors duration-200">{{
+              info.value }}</a>
+          </div>
+        </div>
+
+        <!-- Social Media -->
+        <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
+          <p class="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Follow Us</p>
+          <div class="flex gap-3">
+            <a *ngFor="let social of socialLinks" [href]="social.href" [attr.aria-label]="social.label"
+              [class]="'w-10 h-10 rounded-xl bg-gradient-to-br ' + social.gradient + ' flex items-center justify-center text-white hover:scale-110 transition-transform duration-300 shadow-md'">
+              <i [class]="social.icon + ' text-sm'"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick response badge -->
+        <div class="bg-gradient-to-r from-red-600 to-rose-700 rounded-2xl p-6 text-white">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="material-icons text-yellow-300 text-2xl">bolt</span>
+            <h4 class="font-bold text-lg">Quick Response</h4>
+          </div>
+          <p class="text-white/80 text-sm leading-relaxed">We respond to all inquiries within 24 hours. For urgent
+            matters, call us directly or reach out on WhatsApp.</p>
+        </div>
+
+      </div>
+
+      <!-- Right: Contact Form -->
+      <div class="lg:col-span-3">
+        <div class="bg-white rounded-3xl p-8 shadow-xl border border-gray-100">
+
+          <!-- Success State -->
+          <div *ngIf="isSubmitted" class="text-center py-10">
+            <div class="w-20 h-20 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-6">
+              <span class="material-icons text-green-500 text-4xl">check_circle</span>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-3">Message Sent!</h3>
+            <p class="text-gray-500 mb-8">Thank you for reaching out! Our team will get back to you within 24 hours.</p>
+            <button (click)="resetForm()" class="btn-gradient">
+              Send Another Message
+              <span class="material-icons">refresh</span>
+            </button>
+          </div>
+
+          <!-- Form -->
+          <form *ngIf="!isSubmitted" [formGroup]="contactForm" (ngSubmit)="onSubmit()" novalidate>
+            <h3 class="text-2xl font-bold text-gray-900 mb-2">Send a Message</h3>
+            <p class="text-gray-500 text-sm mb-8">Fill in the form and we'll be in touch shortly.</p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
+              <!-- Name -->
+              <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-2">
+                  Full Name <span class="text-red-500">*</span>
+                </label>
+                <div class="relative">
+                  <span
+                    class="absolute left-3 top-1/2 -translate-y-1/2 material-icons text-gray-400 text-xl">person</span>
+                  <input formControlName="name" type="text" placeholder="Your full name"
+                    class="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-red-500 focus:ring-2 focus:ring-red-500/20 transition-all duration-200 text-sm"
+                    [class.border-red-400]="f['name'].invalid && f['name'].touched">
+                </div>
+                <p *ngIf="f['name'].invalid && f['name'].touched" class="text-red-500 text-xs mt-1">Please enter your
+                  name.</p>
+              </div>
+
+              <!-- Email -->
+              <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-2">
+                  Email Address <span class="text-red-500">*</span>
+                </label>
+                <div class="relative">
+                  <span
+                    class="absolute left-3 top-1/2 -translate-y-1/2 material-icons text-gray-400 text-xl">email</span>
+                  <input formControlName="email" type="email" placeholder="your@email.com"
+                    class="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-red-500 focus:ring-2 focus:ring-red-500/20 transition-all duration-200 text-sm"
+                    [class.border-red-400]="f['email'].invalid && f['email'].touched">
+                </div>
+                <p *ngIf="f['email'].invalid && f['email'].touched" class="text-red-500 text-xs mt-1">Please enter a
+                  valid email.</p>
+              </div>
+
+              <!-- Phone -->
+              <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-2">
+                  Phone Number <span class="text-red-500">*</span>
+                </label>
+
+                <div class="relative">
+                  <span class="absolute left-3 top-1/2 -translate-y-1/2 material-icons text-gray-400 text-xl">
+                    phone
+                  </span>
+
+                  <input formControlName="phone" type="tel" placeholder="+91 98765 43210"
+                    class="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-red-500 focus:ring-2 focus:ring-red-500/20 transition-all duration-200 text-sm"
+                    [class.border-red-400]="f['phone'].invalid && f['phone'].touched">
+                </div>
+
+                <p *ngIf="f['phone'].invalid && f['phone'].touched" class="text-red-500 text-xs mt-1">
+
+                  <span *ngIf="f['phone'].errors?.['required']">
+                    Phone number is required.
+                  </span>
+
+                  <span *ngIf="f['phone'].errors?.['pattern']">
+                    Enter a valid 10 digit phone number.
+                  </span>
+
+                </p>
+
+              </div>
+
+              <!-- Service -->
+              <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-2">
+                  Service Interested In <span class="text-red-500">*</span>
+                </label>
+
+                <div class="relative">
+
+                  <span class="absolute left-3 top-1/2 -translate-y-1/2 material-icons text-gray-400 text-xl">
+                    build
+                  </span>
+
+                  <select formControlName="service"
+                    class="w-full pl-10 pr-10 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-red-500 focus:ring-2 focus:ring-red-500/20 transition-all duration-200 text-sm bg-white appearance-none"
+                    [class.border-red-400]="f['service'].invalid && f['service'].touched">
+
+                    <option value="">Select a service</option>
+                    <option value="web-development">Web Development</option>
+                    <option value="ecommerce-development">E-Commerce Development</option>
+                    <option value="digital-marketing">Digital Marketing</option>
+                    <option value="seo-optimization">SEO Optimization</option>
+                    <option value="social-media">Social Media Marketing</option>
+                    <option value="branding">Branding & Identity</option>
+                    <option value="ui-ux">UI / UX Design</option>
+                    <option value="mobile-app">Mobile App Development</option>
+                    <option value="erp-crm">ERP / CRM Solutions</option>
+                    <option value="content-marketing">Content Marketing</option>
+                    <option value="graphic-design">Graphic Design</option>
+                    <option value="other">Other</option>
+
+                  </select>
+
+                  <span class="absolute right-3 top-1/2 -translate-y-1/2 material-icons text-gray-400">
+                    expand_more
+                  </span>
+
+                </div>
+
+                <p *ngIf="f['service'].invalid && f['service'].touched" class="text-red-500 text-xs mt-1">
+                  Please select a service.
+                </p>
+              </div>
+            </div>
+
+            <!-- Message -->
+            <div class="mb-7">
+              <label class="block text-sm font-semibold text-gray-700 mb-2">
+                Message <span class="text-red-500">*</span>
+              </label>
+              <div class="relative">
+                <span class="absolute left-3 top-3.5 material-icons text-gray-400 text-xl">message</span>
+                <textarea formControlName="message" rows="5"
+                  placeholder="Tell us about your project, goals, and timeline..."
+                  class="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-red-500 focus:ring-2 focus:ring-red-500/20 transition-all duration-200 text-sm resize-none"
+                  [class.border-red-400]="f['message'].invalid && f['message'].touched"></textarea>
+              </div>
+              <p *ngIf="f['message'].invalid && f['message'].touched" class="text-red-500 text-xs mt-1">
+                Message must contain at least 10 characters.
+              </p>
+            </div>
+
+            <!-- Submit error -->
+            <p *ngIf="submitError" role="alert" class="text-red-600 text-sm mb-4 flex items-center gap-2">
+              <span class="material-icons text-base">error_outline</span>
+              {{ submitError }}
+            </p>
+
+            <!-- Submit -->
+            <button type="submit" [disabled]="isSubmitting"
+              class="btn-gradient w-full justify-center text-base py-4 disabled:opacity-70 disabled:cursor-not-allowed">
+              <span *ngIf="!isSubmitting">
+                Send Message
+                <span class="material-icons">send</span>
+              </span>
+              <span *ngIf="isSubmitting" class="flex items-center gap-2">
+                <svg class="animate-spin h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                  <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                  <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.4 0 0 5.4 0 12h4z"></path>
+                </svg>
+                Sending...
+              </span>
+            </button>
+          </form>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

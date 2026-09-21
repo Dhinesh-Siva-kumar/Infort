@@ -1,0 +1,172 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: #1e293b;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Sora', 'Inter', sans-serif;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #dc2626, #be123c);
+  border-radius: 3px;
+}
+
+/* Section utility */
+.section-padding {
+  @apply py-20 px-4 sm:px-6 lg:px-16;
+}
+
+/* Gradient text */
+.gradient-text,
+.group:hover .group-hover\:gradient-text {
+  background: linear-gradient(135deg, #dc2626, #be123c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Button base — shared by the gradient and outline variants */
+.btn-gradient,
+.btn-outline {
+  font-family: 'Sora', 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0;
+  padding: 10px 26px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease, background-color 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-gradient .material-icons,
+.btn-outline .material-icons {
+  transition: transform 0.2s ease;
+}
+
+.btn-gradient:hover .material-icons,
+.btn-outline:hover .material-icons {
+  transform: translateX(3px);
+}
+
+/* Gradient button */
+.btn-gradient {
+  background: linear-gradient(135deg, #dc2626, #be123c);
+  color: white;
+  border: none;
+}
+
+.btn-gradient:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.06);
+  box-shadow: 0 12px 28px rgba(220, 38, 38, 0.4);
+}
+
+.btn-gradient:active {
+  transform: translateY(0) scale(0.98);
+  filter: brightness(0.97);
+  box-shadow: 0 6px 16px rgba(220, 38, 38, 0.3);
+}
+
+.btn-outline {
+  background: transparent;
+  color: white;
+  border: 1.8px solid rgba(255, 255, 255, 0.6);
+}
+
+.btn-outline:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: white;
+  transform: translateY(-2px);
+}
+
+.btn-outline:active {
+  transform: translateY(0) scale(0.98);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Card hover effect */
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(220, 38, 38, 0.15) !important;
+}
+
+/* Section title */
+.section-title {
+  @apply text-4xl sm:text-5xl lg:text-6xl font-bold text-center text-gray-900 leading-tight tracking-normal mb-4;
+}
+
+.section-subtitle {
+  @apply text-lg text-gray-500 text-center mb-16 max-w-2xl mx-auto leading-relaxed;
+}
+
+/* Branded card shadow, used instead of the default gray shadow-2xl on hover */
+.card-hover-brand:hover {
+  box-shadow: 0 25px 50px -12px rgba(220, 38, 38, 0.18);
+}
+
+/* Visible keyboard focus state (mouse/touch users are unaffected) */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid #dc2626;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-float { animation: float 4s ease-in-out infinite; }
+.animate-slide-up { animation: slideUp 0.7s ease-out forwards; }
+.animate-fade-in { animation: fadeIn 0.8s ease-in-out forwards; }
+
+/* Respect users who've asked for less motion */
+@media (prefers-reduced-motion: reduce) {
+  .animate-float,
+  .animate-bounce,
+  .animate-pulse {
+    animation: none !important;
+  }
+}
+

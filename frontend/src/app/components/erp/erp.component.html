@@ -1,0 +1,94 @@
+<section id="erp" class="section-padding relative overflow-hidden"
+         style="background: linear-gradient(135deg, #1c0505 0%, #450a0a 50%, #1c0505 100%);">
+
+  <!-- Background effects -->
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="absolute top-1/3 left-1/6 w-80 h-80 bg-red-500/10 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-1/3 right-1/6 w-80 h-80 bg-rose-500/10 rounded-full blur-3xl"></div>
+    <div class="absolute inset-0 opacity-[0.03]"
+         style="background-image: linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px); background-size: 60px 60px;"></div>
+  </div>
+
+  <div class="max-w-7xl mx-auto relative z-10">
+
+    <!-- Header -->
+    <div class="text-center mb-16">
+      <span class="inline-block px-4 py-1.5 bg-red-500/20 text-red-300 text-sm font-semibold rounded-full mb-4 uppercase tracking-wide border border-red-500/30">ERP Solutions</span>
+      <h2 class="text-4xl sm:text-5xl font-bold text-white mb-4">
+        Smart <span style="background: linear-gradient(135deg, #fca5a5, #fb7185); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">ERP Systems</span>
+      </h2>
+      <p class="text-lg text-white/60 max-w-2xl mx-auto">
+        Custom ERP solutions that automate your operations, unify your data, and give you complete control over your business.
+      </p>
+    </div>
+
+    <!-- Main layout -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+
+      <!-- Left feature cards -->
+      <div class="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-5">
+        <div *ngFor="let feature of erpFeatures"
+             class="group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 hover:border-white/20 transition-all duration-300 hover:-translate-y-1">
+          <div [class]="'w-12 h-12 rounded-xl bg-gradient-to-br ' + feature.gradient + ' flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300'">
+            <span class="material-icons text-white text-xl">{{ feature.icon }}</span>
+          </div>
+          <h4 class="text-white font-bold text-lg mb-2">{{ feature.title }}</h4>
+          <p class="text-white/60 text-sm leading-relaxed">{{ feature.description }}</p>
+        </div>
+      </div>
+
+      <!-- Right: ERP overview panel -->
+      <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-8 flex flex-col justify-between">
+        <div>
+          <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-red-500 to-rose-600 flex items-center justify-center mb-6">
+            <span class="material-icons text-white text-3xl">dashboard</span>
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-4">All-in-One Business Platform</h3>
+          <p class="text-white/60 text-sm leading-relaxed mb-8">
+            Our ERP integrates every function of your business into a single, unified platform — eliminating data silos and giving you a 360° view of your operations in real-time.
+          </p>
+
+          <!-- Modules -->
+          <div class="mb-8">
+            <p class="text-white/80 text-sm font-semibold mb-4 uppercase tracking-wide">Available Modules</p>
+            <div class="flex flex-wrap gap-2">
+              <span *ngFor="let module of modules"
+                    class="px-3 py-1.5 bg-white/10 border border-white/20 text-white/80 text-xs font-medium rounded-lg hover:bg-white/20 transition-colors duration-200 cursor-default">
+                {{ module }}
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <a href="#contact"
+           onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'}); return false;"
+           class="btn-gradient w-full justify-center">
+          Request ERP Demo
+          <span class="material-icons">play_circle</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Bottom banner -->
+    <div class="bg-gradient-to-r from-red-600/20 to-rose-600/20 border border-white/10 rounded-2xl p-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div>
+        <h4 class="text-white font-bold text-xl mb-2">Ready to modernize your operations?</h4>
+        <p class="text-white/60 text-sm">Get a free consultation and see how our ERP can transform your business.</p>
+      </div>
+      <div class="flex gap-4 flex-wrap">
+        <div *ngFor="let stat of [
+          { value: '60%', label: 'Cost Reduction' },
+          { value: '3x', label: 'Productivity Boost' },
+          { value: '99.9%', label: 'Uptime SLA' }
+        ]" class="text-center">
+          <div class="font-display text-2xl font-bold text-white">{{ stat.value }}</div>
+          <div class="text-xs text-white/50 font-medium">{{ stat.label }}</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
