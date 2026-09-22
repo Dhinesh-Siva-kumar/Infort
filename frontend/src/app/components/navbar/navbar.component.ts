@@ -1,4 +1,4 @@
-import { Component, HostListener, OnInit, OnDestroy } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
@@ -24,6 +24,8 @@ export class NavbarComponent implements OnInit, OnDestroy {
   ];
 
   private sectionObserver?: IntersectionObserver;
+
+  constructor(private elementRef: ElementRef<HTMLElement>) {}
 
   ngOnInit(): void {
     const sections = this.navLinks
@@ -55,6 +57,20 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.isScrolled = window.scrollY > 50;
   }
 
+  @HostListener('document:keydown.escape')
+  onEscapeKey() {
+    if (this.isMobileMenuOpen) {
+      this.closeMobileMenu();
+    }
+  }
+
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: MouseEvent) {
+    if (this.isMobileMenuOpen && !this.elementRef.nativeElement.contains(event.target as Node)) {
+      this.closeMobileMenu();
+    }
+  }
+
   toggleMobileMenu() {
     this.isMobileMenuOpen = !this.isMobileMenuOpen;
     document.body.style.overflow = this.isMobileMenuOpen ? 'hidden' : '';
@@ -83,8 +99,8 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
     if (this.isScrolled) {
       return isActive
-        ? `${base} ${weight} text-red-600 bg-red-50`
-        : `${base} ${weight} text-gray-700 hover:text-red-600 hover:bg-red-50`;
+        ? `${base} ${weight} text-primary-600 bg-primary-50`
+        : `${base} ${weight} text-gray-700 hover:text-primary-600 hover:bg-primary-50`;
     }
     return isActive
       ? `${base} ${weight} text-white bg-white/15`
@@ -95,7 +111,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
     const isActive = this.activeSection === link.href.replace('#', '');
     const base = 'px-4 py-3 rounded-xl text-sm transition-all duration-200 flex items-center gap-2';
     return isActive
-      ? `${base} font-semibold text-red-600 bg-red-50`
-      : `${base} font-medium text-gray-700 hover:text-red-600 hover:bg-red-50`;
+      ? `${base} font-semibold text-primary-600 bg-primary-50`
+      : `${base} font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50`;
   }
 }

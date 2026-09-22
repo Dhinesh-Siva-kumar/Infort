@@ -1,27 +1,25 @@
-<section class="section-padding relative overflow-hidden"
-         style="background: linear-gradient(135deg, #1c0505 0%, #450a0a 40%, #7f1d1d 70%, #9f1239 100%);">
+<section class="section-padding relative overflow-hidden bg-hero-gradient">
 
   <!-- Background effects -->
   <div class="absolute inset-0 pointer-events-none">
-    <div class="absolute top-0 left-1/4 w-96 h-96 bg-red-400/10 rounded-full blur-3xl"></div>
-    <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-rose-400/10 rounded-full blur-3xl"></div>
+    <div class="absolute top-0 left-1/4 w-96 h-96 bg-primary-400/10 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-primary-400/10 rounded-full blur-3xl"></div>
     <!-- Dot pattern -->
-    <div class="absolute inset-0 opacity-10"
-         style="background-image: radial-gradient(rgba(255,255,255,0.3) 1px, transparent 1px); background-size: 30px 30px;"></div>
+    <div class="absolute inset-0 opacity-10 dot-grid-pattern"></div>
   </div>
 
   <div class="max-w-5xl mx-auto relative z-10 text-center">
 
     <!-- Badge -->
     <div class="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-5 py-2 mb-8">
-      <span class="material-icons text-yellow-400 text-base">bolt</span>
+      <span class="material-icons text-yellow-400 text-base" aria-hidden="true">bolt</span>
       <span class="text-white/90 text-sm font-medium">Let's Build Something Great Together</span>
     </div>
 
     <!-- Headline -->
     <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
       Ready to Grow Your
-      <span class="block pb-2" style="background: linear-gradient(135deg, #fca5a5, #fb7185, #f43f5e); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+      <span class="block pb-2 bg-text-gradient-light bg-clip-text text-transparent">
         Business Digitally?
       </span>
     </h2>
@@ -34,14 +32,14 @@
     <!-- Buttons -->
     <div class="flex flex-wrap gap-4 justify-center mb-12">
       <button (click)="scrollTo('contact')"
-              class="btn-gradient text-lg py-4 px-10 shadow-2xl shadow-red-500/30">
+              class="btn-gradient text-lg py-4 px-10 shadow-2xl shadow-primary-500/30">
         Start Your Project
-        <span class="material-icons">rocket_launch</span>
+        <span class="material-icons" aria-hidden="true">rocket_launch</span>
       </button>
       <button (click)="scrollTo('services')"
               class="btn-outline text-lg py-4 px-10">
         Explore Services
-        <span class="material-icons">explore</span>
+        <span class="material-icons" aria-hidden="true">explore</span>
       </button>
     </div>
 
@@ -53,7 +51,7 @@
         { icon: 'payments', label: 'Transparent Pricing' },
         { icon: 'support_agent', label: '24/7 Support' }
       ]" class="flex items-center gap-2 text-white/70">
-        <span class="material-icons text-white/50 text-base">{{ item.icon }}</span>
+        <span class="material-icons text-white/50 text-base" aria-hidden="true">{{ item.icon }}</span>
         <span class="text-sm font-medium">{{ item.label }}</span>
       </div>
     </div>

@@ -15,8 +15,8 @@ export class ServicesComponent {
       title: 'Digital Marketing',
       description:
         'Data-driven marketing strategies — SEO, SEM, email campaigns, and analytics to grow your online presence and drive conversions.',
-      gradient: 'from-red-500 to-orange-500',
-      bg: 'from-red-50 to-orange-50',
+      gradient: 'from-primary-500 to-orange-500',
+      bg: 'from-primary-50 to-orange-50',
       tags: ['SEO', 'SEM', 'Analytics'],
     },
     {
@@ -33,8 +33,8 @@ export class ServicesComponent {
       title: 'Web Development',
       description:
         'Full-stack web applications built with modern frameworks — React, Angular, Node.js — optimized for performance and scalability.',
-      gradient: 'from-rose-500 to-red-500',
-      bg: 'from-rose-50 to-red-50',
+      gradient: 'from-primary-500 to-primary-700',
+      bg: 'from-primary-50 to-primary-100',
       tags: ['Angular', 'React', 'Node.js'],
     },
     {
@@ -42,8 +42,8 @@ export class ServicesComponent {
       title: 'Graphic Designing',
       description:
         "Creative visual designs — UI/UX, banners, print materials, and digital assets that communicate your brand's story powerfully.",
-      gradient: 'from-pink-500 to-rose-500',
-      bg: 'from-pink-50 to-rose-50',
+      gradient: 'from-pink-500 to-primary-500',
+      bg: 'from-pink-50 to-primary-50',
       tags: ['UI/UX', 'Print', 'Digital'],
     },
     {
@@ -69,8 +69,8 @@ export class ServicesComponent {
       title: 'Content Writing',
       description:
         'SEO-optimized, compelling content — blogs, website copy, ad copy, and product descriptions that drive traffic and conversions.',
-      gradient: 'from-rose-600 to-red-600',
-      bg: 'from-rose-50 to-red-50',
+      gradient: 'from-primary-600 to-primary-800',
+      bg: 'from-primary-50 to-primary-100',
       tags: ['Blogs', 'SEO Copy', 'Ads'],
     },
     {
@@ -78,10 +78,15 @@ export class ServicesComponent {
       title: 'Logo Creation',
       description:
         'Professional, memorable logos and visual identity systems designed to make a lasting impression and reflect your brand essence.',
-      gradient: 'from-red-500 to-pink-500',
-      bg: 'from-red-50 to-pink-50',
+      gradient: 'from-primary-500 to-pink-500',
+      bg: 'from-primary-50 to-pink-50',
       tags: ['Vector', 'Brand Kit', 'Icons'],
     },
   ];
+
+  scrollTo(id: string) {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  }
 }
 

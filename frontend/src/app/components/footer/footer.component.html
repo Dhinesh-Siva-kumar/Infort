@@ -1,4 +1,4 @@
-<footer style="background: linear-gradient(135deg, #1c0505 0%, #450a0a 100%);">
+<footer class="bg-footer-gradient">
 
   <!-- Main Footer Content -->
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16 py-16">
@@ -29,7 +29,7 @@
       <!-- Services Column -->
       <div>
         <h4 class="text-white font-bold text-lg mb-6 flex items-center gap-2">
-          <div class="w-1 h-5 bg-gradient-to-b from-red-500 to-rose-600 rounded-full"></div>
+          <div class="w-1 h-5 bg-gradient-to-b from-primary-500 to-primary-700 rounded-full"></div>
           Our Services
         </h4>
         <ul class="flex flex-col gap-2.5">
@@ -37,7 +37,7 @@
             <a href="#services"
                (click)="scrollTo('#services', $event)"
                class="text-white/60 text-sm hover:text-white hover:translate-x-1 transition-all duration-200 flex items-center gap-2 group">
-              <span class="material-icons text-white/30 text-xs group-hover:text-red-400 transition-colors duration-200">arrow_forward</span>
+              <span class="material-icons text-white/30 text-xs group-hover:text-primary-400 transition-colors duration-200" aria-hidden="true">arrow_forward</span>
               {{ service }}
             </a>
           </li>
@@ -47,7 +47,7 @@
       <!-- Quick Links -->
       <div>
         <h4 class="text-white font-bold text-lg mb-6 flex items-center gap-2">
-          <div class="w-1 h-5 bg-gradient-to-b from-rose-500 to-rose-700 rounded-full"></div>
+          <div class="w-1 h-5 bg-gradient-to-b from-primary-500 to-primary-700 rounded-full"></div>
           Quick Links
         </h4>
         <ul class="flex flex-col gap-2.5">
@@ -55,7 +55,7 @@
             <a [href]="link.href"
                (click)="scrollTo(link.href, $event)"
                class="text-white/60 text-sm hover:text-white hover:translate-x-1 transition-all duration-200 flex items-center gap-2 group">
-              <span class="material-icons text-white/30 text-xs group-hover:text-rose-400 transition-colors duration-200">arrow_forward</span>
+              <span class="material-icons text-white/30 text-xs group-hover:text-primary-400 transition-colors duration-200" aria-hidden="true">arrow_forward</span>
               {{ link.label }}
             </a>
           </li>
@@ -65,14 +65,14 @@
       <!-- Contact Info -->
       <div>
         <h4 class="text-white font-bold text-lg mb-6 flex items-center gap-2">
-          <div class="w-1 h-5 bg-gradient-to-b from-orange-500 to-red-600 rounded-full"></div>
+          <div class="w-1 h-5 bg-gradient-to-b from-primary-500 to-primary-700 rounded-full"></div>
           Contact Info
         </h4>
 
         <div class="flex flex-col gap-4">
           <a href="mailto:infortsolutions@infort.in" class="flex items-start gap-3 text-white/60 hover:text-white transition-colors duration-200 group">
-            <div class="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0 group-hover:bg-red-500/30 transition-colors duration-200">
-              <span class="material-icons text-white/60 text-sm">email</span>
+            <div class="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary-500/30 transition-colors duration-200">
+              <span class="material-icons text-white/60 text-sm" aria-hidden="true">email</span>
             </div>
             <div>
               <p class="text-xs text-white/40 font-medium uppercase tracking-wide mb-0.5">Email</p>
@@ -81,8 +81,8 @@
           </a>
 
           <a href="tel:+916383944767" class="flex items-start gap-3 text-white/60 hover:text-white transition-colors duration-200 group">
-            <div class="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0 group-hover:bg-rose-500/30 transition-colors duration-200">
-              <span class="material-icons text-white/60 text-sm">phone</span>
+            <div class="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary-500/30 transition-colors duration-200">
+              <span class="material-icons text-white/60 text-sm" aria-hidden="true">phone</span>
             </div>
             <div>
               <p class="text-xs text-white/40 font-medium uppercase tracking-wide mb-0.5">Phone</p>
@@ -92,7 +92,7 @@
 
           <div class="flex items-start gap-3 text-white/60">
             <div class="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0">
-              <span class="material-icons text-white/60 text-sm">location_on</span>
+              <span class="material-icons text-white/60 text-sm" aria-hidden="true">location_on</span>
             </div>
             <div>
               <p class="text-xs text-white/40 font-medium uppercase tracking-wide mb-0.5">Office</p>
@@ -118,7 +118,7 @@
       </div>
       <div class="flex items-center gap-2 text-white/40 text-xs">
         <span>Made with</span>
-        <span class="material-icons text-red-400 text-base">favorite</span>
+        <span class="material-icons text-primary-400 text-base" aria-hidden="true">favorite</span>
         <span>by Infort</span>
       </div>
     </div>

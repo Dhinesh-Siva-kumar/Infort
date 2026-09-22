@@ -3,17 +3,18 @@
 
     <!-- Header -->
     <div class="text-center mb-16">
-      <span class="inline-block px-4 py-1.5 bg-yellow-50 text-yellow-600 text-sm font-semibold rounded-full mb-4 uppercase tracking-wide">Testimonials</span>
+      <span class="inline-block px-4 py-1.5 bg-primary-50 text-primary-600 text-sm font-semibold rounded-full mb-4 uppercase tracking-wide">Testimonials</span>
       <h2 class="section-title gradient-text">What Our Clients Say</h2>
       <p class="section-subtitle">
         Real results, real stories. See what businesses have achieved by partnering with Infort.
       </p>
 
       <!-- Rating banner -->
-      <div class="inline-flex items-center gap-3 bg-gradient-to-r from-yellow-50 to-amber-50 border border-yellow-200 rounded-full px-6 py-3 mt-4">
-        <div class="flex gap-1">
+      <div class="inline-flex items-center gap-3 bg-primary-50 border border-primary-100 rounded-full px-6 py-3 mt-4">
+        <div class="flex gap-1" aria-hidden="true">
           <span *ngFor="let s of [1,2,3,4,5]" class="material-icons text-yellow-400 text-xl">star</span>
         </div>
+        <span class="sr-only">5 out of 5 stars.</span>
         <span class="text-gray-700 font-bold">5.0 Rating</span>
         <span class="text-gray-500 text-sm">from 10+ happy clients</span>
       </div>
@@ -26,15 +27,16 @@
            class="group card-hover-brand bg-white rounded-2xl p-7 border border-gray-100 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
 
         <!-- Quote icon -->
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-red-600 to-rose-700 flex items-center justify-center mb-5">
-          <span class="material-icons text-white text-xl">format_quote</span>
+        <div class="w-10 h-10 rounded-xl bg-card-gradient flex items-center justify-center mb-5">
+          <span class="material-icons text-white text-xl" aria-hidden="true">format_quote</span>
         </div>
 
         <!-- Stars -->
-        <div class="flex gap-1 mb-4">
+        <div class="flex gap-1 mb-4" aria-hidden="true">
           <span *ngFor="let s of getStars(testimonial.rating)"
                 class="material-icons text-yellow-400 text-lg">star</span>
         </div>
+        <span class="sr-only">{{ testimonial.rating }} out of 5 stars.</span>
 
         <!-- Review text -->
         <p class="text-gray-600 text-sm leading-relaxed mb-6 italic">
@@ -51,7 +53,7 @@
             <p class="text-gray-500 text-xs">{{ testimonial.role }}</p>
           </div>
           <div class="ml-auto">
-            <span class="material-icons text-blue-200 group-hover:text-red-400 transition-colors duration-300 text-3xl">verified</span>
+            <span class="material-icons text-blue-200 group-hover:text-primary-400 transition-colors duration-300 text-3xl" aria-hidden="true">verified</span>
           </div>
         </div>
       </div>

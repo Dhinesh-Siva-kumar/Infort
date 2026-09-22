@@ -14,13 +14,13 @@ export class ErpComponent {
       icon: 'settings_suggest',
       title: 'Custom ERP Development',
       description: 'Tailor-made ERP systems built specifically for your business processes, industry needs, and growth plans.',
-      gradient: 'from-red-600 to-red-800',
+      gradient: 'from-primary-600 to-primary-800',
     },
     {
       icon: 'auto_mode',
       title: 'Business Process Automation',
       description: 'Automate repetitive tasks, streamline workflows, and eliminate manual errors to boost productivity significantly.',
-      gradient: 'from-rose-600 to-rose-800',
+      gradient: 'from-primary-600 to-primary-800',
     },
     {
       icon: 'inventory_2',
@@ -38,13 +38,13 @@ export class ErpComponent {
       icon: 'show_chart',
       title: 'Analytics & Reporting',
       description: 'Real-time dashboards, KPI tracking, and detailed business intelligence reports to drive informed decisions.',
-      gradient: 'from-pink-600 to-rose-600',
+      gradient: 'from-pink-600 to-primary-600',
     },
     {
       icon: 'scale',
       title: 'Scalable Architecture',
       description: 'Cloud-ready, modular ERP architecture that grows with your business — from 10 to 10,000 users seamlessly.',
-      gradient: 'from-orange-600 to-red-600',
+      gradient: 'from-orange-600 to-primary-600',
     },
   ];
 

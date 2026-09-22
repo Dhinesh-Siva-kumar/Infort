@@ -1,9 +1,9 @@
-<section id="services" class="section-padding bg-gradient-to-br from-slate-50 to-red-50/30">
+<section id="services" class="section-padding bg-gradient-to-br from-slate-50 to-primary-50/30">
   <div class="max-w-7xl mx-auto">
 
     <!-- Section Header -->
     <div class="text-center mb-16">
-      <span class="inline-block px-4 py-1.5 bg-red-50 text-red-600 text-sm font-semibold rounded-full mb-4 uppercase tracking-wide">What We Do</span>
+      <span class="inline-block px-4 py-1.5 bg-primary-50 text-primary-600 text-sm font-semibold rounded-full mb-4 uppercase tracking-wide">What We Do</span>
       <h2 class="section-title gradient-text">Our Services</h2>
       <p class="section-subtitle">
         Comprehensive digital solutions under one roof — everything you need to launch, grow, and scale your business online.
@@ -12,14 +12,13 @@
 
     <!-- Services Grid -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-      <div *ngFor="let service of services; let i = index"
-           [class]="i === 8 ? 'sm:col-span-2 lg:col-span-1 xl:col-span-2' : ''"
+      <div *ngFor="let service of services"
            class="service-card card-hover-brand group bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-400 cursor-pointer">
 
         <!-- Icon -->
         <div [class]="'w-14 h-14 rounded-2xl bg-gradient-to-br ' + service.gradient + ' flex items-center justify-center mb-5 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg'"
              [ngStyle]="{'box-shadow': '0 8px 25px rgba(0,0,0,0.15)'}">
-          <span class="material-icons text-white text-2xl">{{ service.icon }}</span>
+          <span class="material-icons text-white text-2xl" aria-hidden="true">{{ service.icon }}</span>
         </div>
 
         <!-- Title -->
@@ -41,9 +40,9 @@
         </div>
 
         <!-- Arrow link -->
-        <div class="flex items-center gap-2 text-red-600 text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <div class="flex items-center gap-2 text-primary-600 text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
           <span>Learn More</span>
-          <span class="material-icons text-base group-hover:translate-x-1 transition-transform duration-300">arrow_forward</span>
+          <span class="material-icons text-base group-hover:translate-x-1 transition-transform duration-300" aria-hidden="true">arrow_forward</span>
         </div>
       </div>
     </div>
@@ -51,10 +50,10 @@
     <!-- Bottom CTA -->
     <div class="text-center mt-14">
       <p class="text-gray-500 mb-6 text-lg">Need a custom solution tailored for your business?</p>
-      <a href="#contact" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'}); return false;"
+      <a href="#contact" (click)="$event.preventDefault(); scrollTo('contact')"
          class="btn-gradient inline-flex text-base">
         Discuss Your Project
-        <span class="material-icons">chat</span>
+        <span class="material-icons" aria-hidden="true">chat</span>
       </a>
     </div>
 

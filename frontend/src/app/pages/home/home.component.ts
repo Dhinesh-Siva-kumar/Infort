@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { NavbarComponent } from '../../components/navbar/navbar.component';
 import { HeroComponent } from '../../components/hero/hero.component';
 import { AboutComponent } from '../../components/about/about.component';
+import { CapabilitiesComponent } from '../../components/capabilities/capabilities.component';
 import { ServicesComponent } from '../../components/services/services.component';
 import { ErpComponent } from '../../components/erp/erp.component';
 import { ProjectSupportComponent } from '../../components/project-support/project-support.component';
@@ -20,6 +21,7 @@ import { FooterComponent } from '../../components/footer/footer.component';
     NavbarComponent,
     HeroComponent,
     AboutComponent,
+    CapabilitiesComponent,
     ServicesComponent,
     ErpComponent,
     ProjectSupportComponent,
